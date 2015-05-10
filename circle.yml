@@ -1,0 +1,20 @@
+general:
+  build_dir: tests
+
+dependencies:
+  pre:
+    - sudo pip install paramiko PyYAML jinja2 httplib2
+    - sudo pip install ansible
+
+machine:
+  environment:
+    PLAYBOOK: playbook.yml
+
+test:
+  pre:
+    - sudo ln -s ansible-role-s3fs ../../mauricios.s3fs
+  override:
+    - ansible-playbook $PLAYBOOK --syntax-check
+    - ansible-playbook $PLAYBOOK --connection=local
+    - "ansible-playbook $PLAYBOOK --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+    - "s3fs --version"

@@ -1,0 +1,7 @@
+---
+- name: restart s3fs
+  sudo: yes
+  service:
+    name: s3fs
+    state: restarted
+    enabled: yes

@@ -1,0 +1,37 @@
+---
+notifications:
+  email: false
+
+language: python
+python: "2.7"
+
+env:
+  - PLAYBOOK=playbook.yml
+
+before_install:
+  - uname -a
+  - sudo apt-get update -qq
+  - ln -s ansible-role-s3fs ../mauricios.s3fs
+
+install:
+  # Install Ansible.
+  - sudo pip install paramiko PyYAML jinja2 httplib2
+  - sudo pip install ansible
+
+script:
+  - "cd tests"
+  # Check the role/playbook's syntax.
+  - "ansible-playbook $PLAYBOOK --syntax-check"
+
+  # Run the role/playbook with ansible-playbook.
+  - "ansible-playbook $PLAYBOOK --connection=local"
+
+  # Run the role/playbook again, checking to make sure it's idempotent.
+  - >
+    ansible-playbook $PLAYBOOK --connection=local
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
+
+  # Request a page via curl, to make sure Varnish is running and responds.
+  - "s3fs --version"
