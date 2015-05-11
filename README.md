@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Aplyca/ansible-role-s3fs.svg?branch=master)](https://travis-ci.org/Aplyca/ansible-role-s3fs)
 [![Circle CI](https://circleci.com/gh/Aplyca/ansible-role-s3fs.svg?style=svg)](https://circleci.com/gh/Aplyca/ansible-role-s3fs)
-Ansible Role that installs and configure a web accelerator based on Varnish on Debian/Ubuntu. Aditionally install a start/stop script to mount/unmount buckets and add the mountpoints to the fstab file.
+
+Ansible Role that installs and configure s3fs on Debian/Ubuntu. Aditionally, install a start/stop script to mount/unmount buckets and add the mountpoints to the fstab file.
 
 
 ## Requirements
