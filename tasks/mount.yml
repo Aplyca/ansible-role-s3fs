@@ -4,7 +4,6 @@
   file:
     path: "{{ item.mountpoint }}"
     state: directory
-    owner : "{{ ansible_user_id }}"
   with_items: s3fs["buckets"]
   when: s3fs["buckets"] is defined
   ignore_errors: yes

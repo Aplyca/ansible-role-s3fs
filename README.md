@@ -16,12 +16,12 @@ See official docs: http://docs.ansible.com/intro_configuration.html#hash-behavio
 
 Using ansible galaxy:
 ```bash
-ansible-galaxy install mauricios.s3fs
+ansible-galaxy install aplyca.s3fs
 ```
 You can add this role as a dependency for other roles, add the role to the meta/main.yml file of your own role:
 ```yaml
 dependencies:
-  - { role: mauricios.s3fs }
+  - { role: aplyca.s3fs }
 ```
 
 ## Role Variables

@@ -1,4 +1,4 @@
 ---
 - hosts: all
   roles:
-    - mauricios.s3fs
+    - aplyca.s3fs

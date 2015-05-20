@@ -11,7 +11,7 @@ env:
 before_install:
   - uname -a
   - sudo apt-get update -qq
-  - ln -s ansible-role-s3fs ../mauricios.s3fs
+  - ln -s ansible-role-s3fs ../aplyca.s3fs
 
 install:
   # Install Ansible.

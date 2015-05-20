@@ -12,7 +12,7 @@ machine:
 
 test:
   pre:
-    - sudo ln -s ansible-role-s3fs ../../mauricios.s3fs
+    - sudo ln -s ansible-role-s3fs ../../aplyca.s3fs
   override:
     - ansible-playbook $PLAYBOOK --syntax-check
     - ansible-playbook $PLAYBOOK --connection=local
