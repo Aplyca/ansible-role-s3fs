@@ -1,16 +1,16 @@
 ---
 - name: Make sure s3fs dependencies are present
-  sudo: yes
+  become: yes
   apt:
     name: "{{ item }}"
     state: present
     update_cache: yes
     cache_valid_time: 86400
-  with_items: s3fs['dependencies']
+  with_items: "{{ s3fs.dependencies }}"
 
 - name: Download s3fs source
   get_url:
-    url: "{{ s3fs['source'] }}"
+    url: "{{ s3fs.source }}"
     dest: "~/s3fs-fuse.package"
 
 - name: Uncompress s3fs
@@ -25,21 +25,21 @@
   changed_when: False
 
 - name: Install s3fs
-  sudo: yes
+  become: yes
   shell: "cd /tmp/s3fs-fuse-* && make install"
   args:
     creates: "/usr/local/bin/s3fs"
 
 
 - name: Add read permission to other users
-  sudo: yes
+  become: yes
   file:
     path: /etc/fuse.conf
     state: file
     mode: "o=r"
 
 - name: Allow non-root users to specify the allow_other or allow_root mount options
-  sudo: yes
+  become: yes
   lineinfile:
     dest: "/etc/fuse.conf"
     regexp: "^#user_allow_other$"

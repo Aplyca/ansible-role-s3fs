@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: aplyca
+  author: Aplyca
   description: s3fs for Debian/Ubuntu.
   company: "Aplyca SAS"
   license: "license (BSD, MIT)"
