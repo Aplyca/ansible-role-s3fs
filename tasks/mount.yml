@@ -42,6 +42,6 @@
     fstype: fuse
     opts: "_netdev,{{ item.options }},passwd_file={{ s3fs.passwd_file }}"
     state: present
-  with_items: s3fs["buckets"]
+  with_items: "{{ s3fs.buckets }}"
   when: s3fs.buckets is defined and s3fs.add_to_fstab
   no_log: True
