@@ -16,17 +16,26 @@ See official docs: http://docs.ansible.com/intro_configuration.html#hash-behavio
 
 Using ansible galaxy:
 ```bash
-ansible-galaxy install aplyca.s3fs
+ansible-galaxy install Aplyca.s3fs
 ```
 You can add this role as a dependency for other roles, add the role to the meta/main.yml file of your own role:
 ```yaml
 dependencies:
-  - { role: aplyca.s3fs }
+  - { role: Aplyca.s3fs }
 ```
 
 ## Role Variables
 
 See default variables: https://github.com/Aplyca/ansible-role-s3fs/blob/master/defaults/main.yml
+
+```yaml
+s3fs:
+  buckets:
+    - mountpoint: /mnt/s3fs
+      bucket: s3fs
+      accessKeyId: "accessKeyId"
+      secretAccessKey: "secretAccessKey"     
+```
 
 ## Dependencies
 

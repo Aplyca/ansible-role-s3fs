@@ -5,7 +5,6 @@
     path: "{{ item.mountpoint }}"
     state: directory
   with_items: "{{ s3fs.buckets }}"
-  when: s3fs.buckets is defined
   ignore_errors: yes
   no_log: True
 
@@ -17,7 +16,6 @@
     mode: 0640
     owner: "{{ ansible_user_id }}"
   with_items: "{{ s3fs.buckets }}"
-  when: s3fs.buckets is defined
   notify: restart s3fs
   no_log: True
 

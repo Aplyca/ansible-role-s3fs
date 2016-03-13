@@ -1,3 +1,3 @@
-{% for bucket in s3fs['buckets'] %}
-{{ bucket["bucket"] }}:{{ bucket["accessKeyId"] }}:{{ bucket["secretAccessKey"] }}
+{% for bucket in s3fs.buckets %}
+{{ bucket.bucket }}:{{ bucket.accessKeyId }}:{{ bucket.secretAccessKey }}
 {% endfor %}
