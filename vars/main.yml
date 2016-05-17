@@ -12,3 +12,4 @@ s3fs:
     - mime-support
     - automake
     - libtool
+    - ntp
