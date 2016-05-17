@@ -24,6 +24,8 @@ dependencies:
   - { role: Aplyca.S3fs }
 ```
 
+Use `merge` hash behaviour for variables like dictionaries in Python. You can set this configuration by adding the setting `hash_behaviour=merge` to the `ansible.cfg` file which should be placed in the same directory where you are executing ansible-playbook command. See the docs for more info: http://docs.ansible.com/ansible/intro_configuration.html#hash-behaviour or see the example here: https://github.com/Aplyca/ansible-role-s3fs/blob/master/ansible.cfg
+
 ## Role Variables
 
 See default variables: https://github.com/Aplyca/ansible-role-s3fs/blob/master/defaults/main.yml
@@ -44,17 +46,26 @@ None.
 
 ## Testing
 
-Use Vagrant to test the role:
+### Vagrant
+* You can use Vagrant to set up and provision a VM in order to run tests.
+* To know more about Vagrant: http://www.vagrantup.com
+  And Vagrant with Ansible: http://docs.vagrantup.com/v2/provisioning/ansible.html
 
 ```bash
-cd tests;
-vagrant up;
+tests/vagrant.sh
+```
+### Docker
+
+```bash
+tests/docker.sh
 ```
 
-## License
+License
+-------
 
 MIT / BSD
 
-## Author Information
+Author Information
+------------------
 
 Mauricio Sánchez from Aplyca SAS (http://www.aplyca.com)
