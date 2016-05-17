@@ -9,8 +9,8 @@ Vagrant.configure(2) do |config|
 
       # Asinging a provisioner
       config_machine.vm.provision :ansible, run: "always" do |provisioner|
-        provisioner.playbook = "playbooks.yml"
-        provisioner.extra_vars = "tests/custom.yml" if File.file?("tests/custom.yml")
+          provisioner.playbook = "playbooks.yml"
+          provisioner.extra_vars = "tests/tests.yml" if File.file?("tests/tests.yml")
       end
   end
 end
