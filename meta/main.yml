@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Aplyca
-  description: s3fs for Debian/Ubuntu.
+  description: S for Debian/Ubuntu.
   company: "Aplyca SAS"
   license: "license (BSD, MIT)"
   min_ansible_version: 1.4
@@ -18,3 +18,5 @@ galaxy_info:
     - networking
     - system
     - s3
+
+dependencies: []

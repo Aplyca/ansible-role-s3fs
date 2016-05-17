@@ -1,16 +1,16 @@
+
 Vagrant.configure(2) do |config|
   config.vm.define "s3fs.vagrant", primary: true, autostart: true do |config_machine|
       #Assigning a provider
       config_machine.vm.provider :virtualbox do |virtualbox, override|
-          virtualbox.name = "Vagrant s3fs"
-		  #override.vm.box = "chef/centos-7.0"
-		  override.vm.box = "ubuntu/trusty64"
+        virtualbox.name = "Vagrant S3fs"
+	    override.vm.box = "ubuntu/trusty64"
       end
 
       # Asinging a provisioner
       config_machine.vm.provision :ansible, run: "always" do |provisioner|
-          provisioner.playbook = "playbook.yml"
-          provisioner.extra_vars = "custom.yml" if File.file?("custom.yml")
+        provisioner.playbook = "playbooks.yml"
+        provisioner.extra_vars = "tests/custom.yml" if File.file?("tests/custom.yml")
       end
   end
 end

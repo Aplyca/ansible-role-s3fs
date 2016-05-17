@@ -1,4 +1,4 @@
-# Ansible Role: s3fs
+# Ansible Role: S3fs
 
 [![Build Status](https://travis-ci.org/Aplyca/ansible-role-s3fs.svg?branch=master)](https://travis-ci.org/Aplyca/ansible-role-s3fs)
 [![Circle CI](https://circleci.com/gh/Aplyca/ansible-role-s3fs.svg?style=svg)](https://circleci.com/gh/Aplyca/ansible-role-s3fs)
@@ -16,12 +16,12 @@ See official docs: http://docs.ansible.com/intro_configuration.html#hash-behavio
 
 Using ansible galaxy:
 ```bash
-ansible-galaxy install Aplyca.s3fs
+ansible-galaxy install Aplyca.S3fs
 ```
 You can add this role as a dependency for other roles, add the role to the meta/main.yml file of your own role:
 ```yaml
 dependencies:
-  - { role: Aplyca.s3fs }
+  - { role: Aplyca.S3fs }
 ```
 
 ## Role Variables
@@ -34,7 +34,8 @@ s3fs:
     - mountpoint: /mnt/s3fs
       bucket: s3fs
       accessKeyId: "accessKeyId"
-      secretAccessKey: "secretAccessKey"     
+      secretAccessKey: "secretAccessKey"
+      options: "allow_other,use_cache=/tmp,max_stat_cache_size=100000,uid=33,gid=33,umask=002"
 ```
 
 ## Dependencies

@@ -1,8 +1,0 @@
----
-s3fs:
-  buckets:
-    - bucket: mybucket
-      mountpoint: /mnt/mybucket
-      accessKeyId: "accessKeyId"
-      secretAccessKey: "secretAccessKey"
-      options: "allow_other,use_cache=/tmp,max_stat_cache_size=100000,uid=33,gid=33,umask=002"
