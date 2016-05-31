@@ -30,7 +30,6 @@
   args:
     creates: "/usr/local/bin/s3fs"
 
-
 - name: Add read permission to other users
   become: yes
   file:
