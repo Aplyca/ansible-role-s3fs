@@ -6,12 +6,6 @@
 Ansible Role that installs and configure s3fs on Debian/Ubuntu. Aditionally, install a start/stop script to mount/unmount buckets and add the mountpoints to the fstab file.
 
 
-## Requirements
-
-Use hash behavior for variables in ansible.cfg
-See example: https://github.com/Aplyca/ansible-role-s3fs/blob/master/tests/ansible.cfg
-See official docs: http://docs.ansible.com/intro_configuration.html#hash-behaviour
-
 ## Installation
 
 Using ansible galaxy:
@@ -24,20 +18,17 @@ dependencies:
   - { role: Aplyca.S3fs }
 ```
 
-Use `merge` hash behaviour for variables like dictionaries in Python. You can set this configuration by adding the setting `hash_behaviour=merge` to the `ansible.cfg` file which should be placed in the same directory where you are executing ansible-playbook command. See the docs for more info: http://docs.ansible.com/ansible/intro_configuration.html#hash-behaviour or see the example here: https://github.com/Aplyca/ansible-role-s3fs/blob/master/ansible.cfg
-
 ## Role Variables
 
 See default variables: https://github.com/Aplyca/ansible-role-s3fs/blob/master/defaults/main.yml
 
 ```yaml
-s3fs:
-  buckets:
-    - mountpoint: /mnt/s3fs
-      bucket: s3fs
-      accessKeyId: "accessKeyId"
-      secretAccessKey: "secretAccessKey"
-      options: "allow_other,use_cache=/tmp,max_stat_cache_size=100000,uid=33,gid=33,umask=002"
+s3fs_buckets:
+  - mountpoint: /mnt/s3fs
+    bucket: s3fs
+    accessKeyId: "accessKeyId"
+    secretAccessKey: "secretAccessKey"
+    options: "allow_other,use_cache=/tmp,max_stat_cache_size=100000,uid=33,gid=33,umask=002"
 ```
 
 ## Dependencies

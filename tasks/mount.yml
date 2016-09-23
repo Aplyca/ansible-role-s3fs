@@ -4,7 +4,7 @@
   file:
     path: "{{ item.mountpoint }}"
     state: directory
-  with_items: "{{ s3fs.buckets }}"
+  with_items: "{{ s3fs_buckets }}"
   ignore_errors: yes
   no_log: True
 
@@ -12,10 +12,10 @@
   become: yes
   template:
     src: passwd-s3fs.j2
-    dest: "{{ s3fs.passwd_file }}"
+    dest: "{{ s3fs_passwd_file }}"
     mode: 0640
     owner: "{{ ansible_user_id }}"
-  with_items: "{{ s3fs.buckets }}"
+  with_items: "{{ s3fs_buckets }}"
   notify: restart s3fs
   no_log: True
 
@@ -38,8 +38,8 @@
     name: "{{ item.mountpoint }}"
     src: "s3fs#{{ item.bucket }}"
     fstype: fuse
-    opts: "_netdev,{{ item.options }},passwd_file={{ s3fs.passwd_file }}"
+    opts: "_netdev,{{ item.options }},passwd_file={{ s3fs_passwd_file }}"
     state: present
-  with_items: "{{ s3fs.buckets }}"
-  when: s3fs.buckets is defined and s3fs.add_to_fstab
+  with_items: "{{ s3fs_buckets }}"
+  when: s3fs_buckets is defined and s3fs_add_to_fstab
   no_log: True
