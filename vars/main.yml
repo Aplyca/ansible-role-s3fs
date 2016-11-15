@@ -5,6 +5,8 @@ s3fs:
   dependencies:
     - unzip
     - fuse
+    - libssl-dev
+    - pkg-config
     - build-essential
     - libfuse-dev
     - libcurl4-openssl-dev
