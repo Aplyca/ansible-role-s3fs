@@ -4,7 +4,7 @@ Vagrant.configure(2) do |config|
       #Assigning a provider
       config_machine.vm.provider :virtualbox do |virtualbox, override|
         virtualbox.name = "Vagrant S3fs"
-	    override.vm.box = "ubuntu/trusty64"
+	      override.vm.box = "ubuntu/trusty64"
       end
 
       # Asinging a provisioner

@@ -2,12 +2,17 @@
 #
 # {{ ansible_managed }}
 #
+
 ### BEGIN INIT INFO
 # Provides:          s3fs
+# Required-Start:    $network $syslog $time
+# Required-Stop:     $network $syslog $time
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
+# X-Interactive:     true
 # Short-Description: Mount and unmount s3fs buckets as file systems
 # Description:       Controls the s3fs mountpoint as file systems
+#  This script will mount the S3fs mount points.
 ### END INIT INFO
 
 DESC="file system"
